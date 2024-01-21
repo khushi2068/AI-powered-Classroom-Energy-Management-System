@@ -1,0 +1,220 @@
+body{
+    margin: 0px;
+    background-color: #f4dcdc;
+}
+.navbar{
+    background-color: #ffb5b7;
+    height:120px;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 50;
+    border: 0px;
+    display: flex;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: black;
+   justify-content: space-evenly;
+   
+}
+.logo{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    right: 100px;
+    bottom: 15px;
+    background-image: url("../images/logo.png");
+    background-size: cover;
+  
+}
+.classroom_status{
+    position: relative;
+    right: 222px;
+    top: -7px;
+}
+.text{
+    margin: 40px;
+    text-align: center;
+    margin-right: 5px;
+    font-family:'Kanit', sans-serif;
+    letter-spacing: 2.60px;
+    font-size: 37px;
+    font-weight: 1570;
+    color: #96292c;
+}
+.logout{
+    border-radius: 20px;
+    background: #a83236;
+    height: 50px;
+    position: relative;
+    top: 35px;
+    left: 30px;
+    border: solid;
+    border-color: rgb(39, 38, 38);
+    border-width: 1.5px
+    
+}
+.logout_text{
+    margin: 40px;
+    text-align: center;
+    margin-right: 5px;
+    font-family:'Kanit', sans-serif;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    position: relative;
+    top: -40px;
+    right: 12px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.logout:hover{
+    background: rgb(184, 87, 87);
+}
+.heading{
+    color: #83272a;
+}
+
+#camera_img{
+    height: 30px;
+    width: 40px;
+    border: none;
+    margin:0px;
+    background-color: #ffcece;
+    padding: 0px;
+}
+button{
+    background-color: #ffcece;
+    border-width: 0px;
+}
+#tick_img{
+    height: 30px;
+    width: 25px;
+    border: none;
+    background-color: #ffcece;
+}
+#search_logo{
+    height: 30px;
+    width: 30px;
+    border: none;
+}
+#search_logo:hover{
+    height: 33px;
+    width: 33px;
+}
+.third_container{
+    padding-top: 200px;
+    padding-left: 0px;
+    height: 500px;
+    position: relative;
+    top: 235px;
+}
+.classroom_number_1{
+    display:none;
+    margin-top: -350px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+
+.classroom_number_3{
+    margin-top: 25px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+.classroom_number_4{
+    margin-top: 25px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+.classroom_number_5{
+    margin-top: 25px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+.classroom_number_6{
+    margin-top: 25px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+.classroom_number_7{
+    margin-top: 25px;
+    width: 800px;
+    margin-right: 100px;
+    margin-left: 200px;
+    background-color: #ffcece;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    border: solid;
+    border-color: #f1a4a6;
+    border-width: 1.5px;
+}
+#text_4{
+    margin-left: -125px;
+    font-family:'Kanit', sans-serif ;
+    letter-spacing: 2.60px;
+    font-size: 25px;
+    font-weight: 1400;
+    margin-top: 10px;
+    color: #83272a;
+}
+#camera_4{
+    margin-right: -120px;
+}
+#text_3{
+    font-family:'Kanit', sans-serif ;
+    letter-spacing: 2.60px;
+    font-size: 25px;
+    font-weight: 1400;
+    margin-top: 10px;
+    color: #83272a;
+}

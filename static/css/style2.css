@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  background-color: #121212; /* Dark background */
+  color: #fff; /* Light text */
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: #1f1f1f; /* Darker navbar background */
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  border-bottom: 2px solid #eb1c24; /* Red border */
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* Center items vertically */
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  background-image: url("../images/logo.png");
+  background-size: cover;
+}
+
+.text {
+  margin: 40px 0; /* Adjust margin */
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 2.6px;
+  font-size: 37px;
+  font-weight: 500;
+  color: #eb1c24;
+}
+
+.logout {
+  border-radius: 20px;
+  background: #a83236;
+  height: 40px; /* Reduce height */
+  padding: 0 20px; /* Adjust padding */
+  border: solid 1.5px #272626;
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.logout_text {
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 2px;
+  font-size: 24px; /* Adjust font size */
+  font-weight: 700;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout:hover {
+  background: #b85757;
+}
+
+.heading {
+  color: #eb1c24;
+}
+
+#camera_img {
+  height: 30px;
+  width: 40px;
+  border: none;
+  margin: 0px;
+  background-color: #ffcece;
+  padding: 0px;
+}
+
+#tick_img {
+  height: 30px;
+  width: 25px;
+  border: none;
+  background-color: #ffcece;
+}
+
+#search_logo:hover {
+  height: 33px;
+  width: 33px;
+}
+.third_container {
+  margin-top: 50px;
+  padding-top: 30px; /* Decreased padding */
+  padding-left: 10px; /* Adjusted padding */
+  height: auto; /* Allow content to dictate height */
+  display: flex; /* Change from relative positioning */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.classroom_number_2,
+.classroom_number_1 {
+  margin-top: 15px; /* Adjusted margin top */
+  width: 90%; /* Adjusted width */
+  padding: 10px; /* Reduced padding */
+  background-color: #ffd2d2; /* Light red background */
+  height: 60px; /* Reduced height */
+  border-radius: 10px; /* Reduced border radius */
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* Center content vertically */
+  border: solid 2px #d98989; /* Adjusted border */
+  color: black;
+}
+
+h3 {
+  font-family: "Kanit", sans-serif;
+  font-size: 20px; /* Reduced font size */
+  font-weight: bold; /* Added font weight */
+}
+
+.status-icon {
+  width: 30px; /* Reduced size */
+  height: 30px; /* Reduced size */
+  border-radius: 50%; /* Made circular */
+  line-height: 20px; /* Center content */
+  text-align: center;
+  color: white;
+  background-color: #2554ee; /* Green color */
+}
+
+.cameraButton {
+  background-color: transparent;
+  border: none;
+  width: 100px;
+}
+.cameraButton > div {
+  display: none;
+}
+
+.cameraButton:hover > div {
+  display: block;
+  -webkit-user-select: none;
+  /* margin:auto; */
+  background-color: hsl(0, 0%, 25%);
+  position: relative;
+  top: -100px;
+  right: 200px;
+}
+
+
+@keyframes flashing {
+    0% { color: black; } /* Alert color */
+    50% { color: #fff; } /* White color */
+    100% { color: black; } /* Alert color */
+  }
+  
+  /* Apply the animation to a class named "danger-text" */
+  .blinkingText {
+    animation: flashing 2s infinite; /* Adjust animation duration */
+  }

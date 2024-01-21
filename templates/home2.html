@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static 'images/logo.png' %} ">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300&family=Oswald&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"></div>
+
+        <div class="classroom_status">
+            <h2 class="text"> CLASSROOM STATUS </h2>
+        </div>
+        <div class="logout">
+            <h2 class="logout_text"><a href="{% url 'logout' %}"> Logout </a></h2>
+        </div>
+    </div>
+    <div class="heading">
+        <center>
+            <h1>Classrooms</h1>
+        </center>
+    </div>
+    <div class="third_container">
+        <div class="classroom_number_1" id="head">
+            <h3 id="head" class="heading" font-family:'Kanit', sans-serif ;><b>CLASS NAME</b></h3>
+            <h3 id="head" class="heading" font-family:'Kanit', sans-serif ;><b>PEOPLE</b></h3>
+            <h3 id="head" class="heading" font-family:'Kanit', sans-serif ;><b>LIGHT</b></h3>
+            
+            <h3 id="head" class="heading"><b>CHECK LIVE CAM</b></h3>
+        </div>
+        {% for room in data %}
+
+        <div class="classroom_number_2" id="{{ room.name }}_DIV">
+            <h3 id="{{ room.name }}" >{{ room.name }}</h3>
+            <div class="status-icon" id="{{ room.name }}_PEOPLE"></div>
+            <div class="status-icon" id="{{ room.name }}_LIGHTS"></div>
+            
+            <button type="" class="cameraButton">
+                <a href="{{ room.cam_url }}" target ="_blank"><img src="../static/images/camera.png" alt="" id="camera_img">
+                </a>     
+                
+                <div class = "videoFeed">
+                    <img  src="{{ room.cam_url }}" width="300" height="200">
+                </div>  
+            </button>
+           
+            
+            
+        </div>
+        
+        {% endfor %}
+        
+        
+        
+        
+    </div>
+    <script>
+       
+
+        function startCheck() {
+            fetch('http://127.0.0.1:8000/api/check_status/').then(function (response) {
+                // The API call was successful!
+                // console.log(response)
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return Promise.reject(response);
+                }
+            }).then(function (data) {
+                // This is the JSON from our response
+                console.log(data);
+                for (var i=0;i<data.room.length;i++){
+                    var roomName=data.room[i].toString()
+                    const roomNameDiv = document.getElementById(roomName + "_DIV")
+                    const roomNameText = document.getElementById(roomName)
+                    const roomNamePeople = document.getElementById(roomName+"_PEOPLE")
+                    const roomNameLight = document.getElementById(roomName+"_LIGHTS")
+                    if(data.status[i]==true){
+                        roomNameDiv.style.backgroundColor = '#ff4d4d';
+                        roomNameText.classList.add('blinkingText')
+                    }
+                    else{
+                        roomNameDiv.style.backgroundColor = '#66cc66';
+                        if (roomNameText.classList.contains('blinkingText')){
+                            roomNameText.classList.remove('blinkingText')
+                        }
+                    }
+                    
+                    if(data.people[i]==true){
+                        roomNamePeople.style.backgroundColor = '#FFD700';
+                    }
+                    else{
+                        roomNamePeople.style.backgroundColor = 'black';
+                    }
+                    
+                    if(data.light[i]==true){
+                        roomNameLight.style.backgroundColor = '#FFD700';
+                    }
+                    else{
+                        roomNameLight.style.backgroundColor = 'black';
+                    }
+                    
+                }
+            }).catch(function (err) {
+                // There was an error
+                console.warn('Something went wrong.', err);
+            });
+        }
+        $(document).ready(function(){
+            myVar = setInterval("startCheck()", 10000);
+        });
+        </script>
+</body>
+</html>

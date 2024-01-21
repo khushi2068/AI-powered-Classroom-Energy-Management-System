@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css\login.css' %}">
+    <title>Login</title>
+    <link rel="icon" href="{%static 'images/logo.png' %} ">
+
+</head>
+<body>
+    <div class="login-flex">
+        <div class="left">
+            <img src="{%static 'images\ti2.jpg' %}">
+        </div>
+        <div class="right">
+            <center>
+            <h1>Login</h1>
+            </center>
+            <center>
+            <h4 class="txt">Sign in to continue</h4>
+            </center>
+            <hr>
+        <div class="myform">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <label for="email" class="txt">Please enter Email</label>
+                <br>
+                <input type="email" id="email" name="email" placeholder="email">
+                <br>
+                <label for="lname" class="txt">Please enter Password</label>
+                <br>
+                <input type="password" id="password" name="password" placeholder="password">
+                <br>
+                <a href="{% url 'otp' %}" class="txt" style="color: blueviolet;">Forgot Password?</a>
+                <center>
+                {% for message in messages %}
+                    <h3>{{message}} </h3>
+                {% endfor %}
+                <input type="submit" value="Login">
+            </center>
+              </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

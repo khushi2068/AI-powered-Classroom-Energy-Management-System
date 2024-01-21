@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\login.css' %}">
+    <link rel="icon" href="{%static 'images/logo.png' %} ">
+    <title>Reset Password</title>
+    <style>
+        h3{
+            color:red;
+        }
+        h1{
+            font-family: 'Kanit', sans-serif ;;
+        }
+        .txt{
+            font-family: 'Kanit', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-flex">
+        <div class="left">
+            <img src="{%static 'images\ti2.jpg' %}">
+        </div>
+        <div class="right">
+            <center>
+            <h1>Reset Password</h1>
+            </center>
+            <center>
+            <h4>Verify OTP to continue</h4>
+            </center>
+            <hr>
+        <div class="myform">
+            <form action="{% url 'otp' %}" method="POST">
+                {% csrf_token %}
+                <label for="text">Please enter Email</label>
+                <br>
+                <input type="text" id="text" name="email" placeholder="Please enter email">
+                <center>
+                <input type="submit" value="Verify">
+                </center>
+              </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

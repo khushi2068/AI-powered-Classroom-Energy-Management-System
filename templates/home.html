@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainpage</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300&family=Oswald&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"></div>
+
+        <div class="classroom_status">
+            <h2 class="text"> CLASSROOM STATUS </h2>
+        </div>
+        <div class="logout">
+            <h2 class="logout_text"><a href="#"> Logout </a></h2>
+        </div>
+    </div>
+    <div class="heading">
+        <center>
+            <h1>Classrooms</h1>
+        </center>
+    </div>
+    <div class="third_container">
+        <div class="classroom_number_1" id="LP101">
+            <h3 id="LP101">LP-101</h3>
+            
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+
+        <div class="classroom_number_2" id="LP102">
+            <h3 id="LP109">LP-102</h3>
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+            
+        <div class="classroom_number_3" id="LP103">
+            <h3 id="LP108">LP-103</h3>
+            
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+
+        <div class="classroom_number_4" id="LP104">
+            <h3 id="LP107">LP-104</h3>
+            
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+
+        <div class="classroom_number_5" id="LP105">
+            <h3 id="LP103">LP-105</h3>
+           
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+
+        <div class="classroom_number_6" id="LP106">
+            <h3 id="LP105">LP-106</h3>
+            
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+
+        <div class="classroom_number_7" id="LP107">
+            <h3 id="LP104">LP-107</h3>
+            
+            <button type="" id="camera"> 
+                <img src="../static/images/camera.png" alt="" id="camera_img">
+            </button>
+        </div>
+        
+        
+    </div>
+    <script>
+        function changeColor1(roomid) {
+            const elem = document.getElementById(roomid);
+            elem.style.color = 'red';
+        }
+        function changeColor2(roomid) {
+            const elem = document.getElementById(roomid);
+            elem.style.color = 'black';
+        }
+        function startCheck() {
+
+            fetch('http://127.0.0.1:8000/api/check_status/').then(function (response) {
+                // The API call was successful!
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return Promise.reject(response);
+                }
+            }).then(function (data) {
+                // This is the JSON from our response
+                console.log(data);
+                for (var i=0;i<data.room.length;i++){
+                    if(data.status[i]==true){
+                        console.log(data.room[i])
+                        var s=data.room[i].toString()
+                        changeColor1(s)
+                    }
+                    else{
+                        var s=data.room[i].toString()
+                        changeColor2(s)
+                    }
+                }
+            }).catch(function (err) {
+                // There was an error
+                console.warn('Something went wrong.', err);
+            });
+        }
+        $(document).ready(function(){
+            myVar = setInterval("startCheck()", 10000);
+        });
+        </script>
+</body>
+</html>
